@@ -33,19 +33,19 @@ A high-capability autonomous agent designed to solve complex, multi-step data sc
 
 ```mermaid
 graph TD
-    User[User] -->|UI Interaction| Frontend[React Frontend]
-    User -->|API Request| Backend[FastAPI Backend]
+    User[User] -->|UI Interaction| Frontend["React Frontend"]
+    User -->|API Request| Backend["FastAPI Backend"]
     
     subgraph "Prompt Lab Core"
-        Frontend -->|Test Prompts| Tester[Prompt Tester Service]
-        Backend -->|Solve Task| Solver[Autonomous Solver Agent]
+        Frontend -->|Test Prompts| Tester["Prompt Tester Service"]
+        Backend -->|Solve Task| Solver["Autonomous Solver Agent"]
         
-        Solver -->|Think| LLM[LLM (GPT-4o)]
-        Solver -->|Act| Tools[Tool Set]
+        Solver -->|Think| LLM["LLM (GPT-4o)"]
+        Solver -->|Act| Tools["Tool Set"]
         
-        Tools -->|Browse| Browser[Playwright]
-        Tools -->|Run Code| Python[Python Subprocess]
-        Tools -->|Download| Files[File System]
+        Tools -->|Browse| Browser["Playwright"]
+        Tools -->|Run Code| Python["Python Subprocess"]
+        Tools -->|Download| Files["File System"]
     end
 ```
 
