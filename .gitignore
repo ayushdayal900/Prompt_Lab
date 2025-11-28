@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.env
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Frontend
+frontend/dist/
+frontend/.env.local
+
+# Project Specific
+downloads/
+workspace/
+.DS_Store
