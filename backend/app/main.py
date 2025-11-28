@@ -11,19 +11,34 @@ from app.api.routes import solve_quiz, QuizRequest
 app = FastAPI(title="AI Pipe Prompt Tester & Quiz Solver")
 
 # CORS configuration
-origins = [
-    "http://localhost:5173",  # React frontend
-    "http://localhost:3000",
-    "https://prompt-lab-rouge.vercel.app",
-    "https://prompt-lab-steel.vercel.app",
-    "https://prompt-lab-backend.onrender.com"
-]
+# origins = [
+#     "http://localhost:5173",  # React frontend
+#     "http://localhost:3000",
+#     "https://prompt-lab-rouge.vercel.app",
+#     "https://prompt-lab-steel.vercel.app",
+#     "https://prompt-lab-backend.onrender.com"
+# ]
+
+
+
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "https://prompt-lab-steel.vercel.app",
+        "https://prompt-lab-rouge.vercel.app",
+    ],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
 
