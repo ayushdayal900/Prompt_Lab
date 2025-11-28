@@ -14,6 +14,8 @@ app = FastAPI(title="AI Pipe Prompt Tester & Quiz Solver")
 origins = [
     "http://localhost:5173",  # React frontend
     "http://localhost:3000",
+    "https://prompt-lab-rouge.vercel.app",
+    "https://prompt-lab-backend.onrender.com"
 ]
 
 app.add_middleware(

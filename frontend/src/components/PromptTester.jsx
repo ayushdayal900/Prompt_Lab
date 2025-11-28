@@ -23,7 +23,8 @@ const PromptTester = () => {
         setError(null);
         setResult(null);
         try {
-            const response = await axios.post('http://localhost:8000/api/test-prompt', {
+            const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+            const response = await axios.post(`${baseUrl}/api/test-prompt`, {
                 system_prompt: systemPrompt,
                 user_prompt: userPrompt,
                 model: model,
