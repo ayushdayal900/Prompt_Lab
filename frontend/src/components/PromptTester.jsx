@@ -36,7 +36,7 @@ const PromptTester = () => {
             console.error("Error running test:", err);
             const errorMsg = err.response
                 ? `Server Error (${err.response.status}): ${JSON.stringify(err.response.data)}`
-                : `Network/Client Error: ${err.message}`;
+                : `Network/Client Error: ${err.message} (Target: ${baseUrl})`;
             setError(errorMsg);
         } finally {
             setLoading(false);
@@ -44,7 +44,7 @@ const PromptTester = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 font-sans text-gray-900">
+        <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 font-sans text-gray-900" >
             <div className="max-w-5xl mx-auto space-y-8">
 
                 {/* Header */}
@@ -224,7 +224,7 @@ const PromptTester = () => {
                 </div>
 
             </div>
-        </div>
+        </div >
     );
 };
 
