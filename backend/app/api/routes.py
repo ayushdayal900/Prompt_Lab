@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, BackgroundTasks
 from pydantic import BaseModel, HttpUrl, EmailStr
 from typing import Optional, Dict, Any
+import os
 from app.services.prompt_tester import PromptTester
 from app.services.solver import QuizSolver
 
@@ -51,7 +52,7 @@ async def test_prompt(request: PromptTestRequest):
         user_prompt=request.user_prompt,
         model=request.model,
         secret=request.secret,
-        api_token=request.api_token
+        api_token=request.api_token or os.getenv("API_KEY")
     )
     return result
 
@@ -72,7 +73,7 @@ async def solve_quiz(request: QuizRequest, background_tasks: BackgroundTasks):
         email=request.email,
         secret=request.secret,
         start_url=str(request.url),
-        api_token=request.api_token
+        api_token=request.api_token or os.getenv("API_KEY")
     )
 
     return {"message": "Solver started", "status": "processing"}

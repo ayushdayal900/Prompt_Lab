@@ -1,5 +1,10 @@
 from fastapi import FastAPI, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 from app.api.routes import router as api_router
 from app.api.routes import solve_quiz, QuizRequest
 

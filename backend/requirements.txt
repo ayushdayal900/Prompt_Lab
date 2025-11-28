@@ -16,14 +16,8 @@ PyPDF2
 openai
 google-generativeai
 aiohttp
-pandas
-numpy
-scikit-learn
-matplotlib
-seaborn
 networkx
 duckdb
 Pillow
-PyPDF2
 soundfile
-openai
+email-validator
