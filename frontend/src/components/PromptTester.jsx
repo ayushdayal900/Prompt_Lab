@@ -34,7 +34,10 @@ const PromptTester = () => {
             setResult(response.data);
         } catch (err) {
             console.error("Error running test:", err);
-            setError('Failed to run test. Check console for details.');
+            const errorMsg = err.response
+                ? `Server Error (${err.response.status}): ${JSON.stringify(err.response.data)}`
+                : `Network/Client Error: ${err.message}`;
+            setError(errorMsg);
         } finally {
             setLoading(false);
         }
