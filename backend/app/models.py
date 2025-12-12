@@ -16,6 +16,7 @@ class QuizSubmission(BaseModel):
     url: str # Using str because HttpUrl can be tricky with partials or if logic changes
     answer: Union[str, int, float, bool, Dict[str, Any]]
 
+
 class LLMAction(BaseModel):
     action: str = Field(..., description="Action to take: 'code', 'download', 'submit', 'wait'")
     code: Optional[str] = None
@@ -23,3 +24,15 @@ class LLMAction(BaseModel):
     answer: Optional[Union[str, int, float, bool, Dict]] = None
     submit_url: Optional[str] = None
     reason: Optional[str] = None
+
+class PromptTestRequest(BaseModel):
+    system_prompt: str
+    user_prompt: str
+    model: str
+    secret: str
+    api_token: Optional[str] = None
+
+class PromptTestResponse(BaseModel):
+    leak_detected: bool
+    llm_output: str
+

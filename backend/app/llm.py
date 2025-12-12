@@ -2,14 +2,19 @@ import os
 from openai import AsyncOpenAI
 import json
 
-async def ask_llm(prompt: str, history: list = None, system_prompt: str = None) -> str:
+async def ask_llm(
+    prompt: str, 
+    history: list = None, 
+    system_prompt: str = None,
+    api_key: str = None,
+    model: str = None
+) -> str:
     """
     Interacts with the LLM provider.
     """
     provider = os.getenv("LLM_PROVIDER", "openai")
-    api_key = os.getenv("OPENAI_API_KEY") or os.getenv("ANTHROPIC_API_KEY")
-    # model = os.getenv("LLM_MODEL", "gpt-4o-mini")
-    model = os.getenv("LLM_MODEL", "gpt-4o-mini")
+    api_key = api_key or os.getenv("OPENAI_API_KEY") or os.getenv("ANTHROPIC_API_KEY")
+    model = model or os.getenv("LLM_MODEL", "gpt-4o-mini")
     
     # Simple OpenRouter/OpenAI compatible client
     client = AsyncOpenAI(
